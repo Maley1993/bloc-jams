@@ -53,14 +53,12 @@
      cursor: pointer;
  }
 
- /*.links-container .navbar-link:hover {
+ .links-container .navbar-link:hover {
      color: rgb(233,50,117);
- }*/
+ }
 
- .links-container:hover{
+ .links-container:active{
    background-color: white;
-   transition-delay: 0.7s;
-
  }
 
  .navbar-link:hover {
