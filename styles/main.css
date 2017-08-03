@@ -22,6 +22,8 @@
      z-index: 1;
  }
 
+
+
  .navbar .logo {
      position: relative;
      left: 2rem;
@@ -35,6 +37,7 @@
      right: 0;
      height: 100px;
      color: white;
+
  }
 
  .links-container .navbar-link {
