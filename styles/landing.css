@@ -26,6 +26,14 @@ body.landing {
      text-shadow: 1px 1px 0px rgb(58,23,63);
  }
 
+ @keyframes fontStyle {
+   50%  {color: red ; font-size: 6rem; }
+   100% {color: white; font-size: 4rem;  }
+ }
+  .hero-title {
+     animation: fontStyle  2s 1 running;
+  }
+
  .selling-points {
      position: relative;
      display: table;
