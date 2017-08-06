@@ -28,6 +28,34 @@ var albumMarconi = {
     ]
 };
 
+var albumWorkShop = {
+    title: 'The Workshop',
+    artist: 'Leroy Jenkins',
+    label: 'Workshop',
+    year: '1993',
+    albumArtUrl: 'assets/images/album_covers/07.png',
+    songs: [
+        { title: 'Woodwork', duration: '4:18' },
+        { title: 'Working all day', duration: '5:14' },
+        { title: 'Still Workin', duration: '3:41' },
+        { title: 'Almost Close', duration: '3:28'},
+        { title: 'Finally off', duration: '4:15'}
+    ]
+};
+
+var changeAlbum = function() {
+  var albums = [albumPicasso, albumMarconi, albumWorkShop];
+  var currentAlbum = document.getElementsByClassName("album-view-title")[0].innerText;
+
+  if (currentAlbum == 'The Colors'){
+  setCurrentAlbum(albumMarconi);
+  } else if (currentAlbum == 'The Telephone') {
+  setCurrentAlbum(albumWorkShop);
+  } else {
+  setCurrentAlbum(albumPicasso);
+  }
+}
+
 var createSongRow = function(songNumber, songName, songLength) {
     var template =
        '<tr class="album-view-song-item">'
