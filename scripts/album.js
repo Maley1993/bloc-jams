@@ -27,20 +27,27 @@ var createSongRow = function(songNumber, songName, songLength) {
     var songNumber = parseInt($(this).attr('data-song-number'));
 
 	  if (currentlyPlayingSongNumber !== null) {
-		var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
-		currentlyPlayingCell.html(currentlyPlayingSongNumber);
+
+    getSongNumberCell(currentlyPlayingSongNumber).html(currentlyPlayingSongNumber);
+		// var currentlyPlayingCell = $('.song-item-number[data-song-number="' + currentlyPlayingSongNumber + '"]');
+		// currentlyPlayingCell.html(currentlyPlayingSongNumber);
 	  }
 
 	  if (currentlyPlayingSongNumber !== songNumber) {
 		$(this).html(pauseButtonTemplate);
-		currentlyPlayingSongNumber = parseInt(songNumber);
-    currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+
+		// currentlyPlayingSongNumber = parseInt(songNumber);
+    // currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+
+    setSong(songNumber);
+
     updatePlayerBarSong();
 	} else if (currentlyPlayingSongNumber === parseInt(songNumber)) {
 		$(this).html(playButtonTemplate);
     $('.main-controls .play-pause').html(playerBarPlayButton);
-		currentlyPlayingSongNumber = null;
-    currentSongFromAlbum = null;
+		// currentlyPlayingSongNumber = null;
+    // currentSongFromAlbum = null;
+    setSong();
 	  }
   };
 
@@ -146,6 +153,20 @@ var updatePlayerBarSong = function() {
   $('.currently-playing .artist-song-mobile').text(currentSongFromAlbum.title + " - " + currentAlbum.artist)
 
   $('.main-controls .play-pause').html(playerBarPauseButton);
+};
+
+var setSong = function(songNumber) {
+  if(songNumber === undefined) {
+    currentlyPlayingSongNumber = null;
+    currentSongFromAlbum = null;
+  } else {
+  currentlyPlayingSongNumber= songNumber;
+  currentSongFromAlbum = currentAlbum.songs[songNumber - 1];
+  }
+};
+
+var getSongNumberCell = function(number) {
+  return $('.song-item-number[data-song-number="' + number + '"]');
 };
 
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
